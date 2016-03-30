@@ -559,55 +559,6 @@ public class TinkerpopJsonCrudServiceReadTest {
   }
 
   @Test
-  public void omitsDeletedRelations() throws Exception {
-    UUID id = UUID.randomUUID();
-    Graph graph = newGraph()
-      .withVertex("source", v -> v
-        .withOutgoingRelation("isPseudonymOf", "work", relation -> relation
-          .withRev(1)
-          .withDeleted(null) //when no deleted prop is present, it should assume that the prop is not deleted
-        )
-        .withOutgoingRelation("isPseudonymOf", "work", relation -> relation
-          .withRev(2)
-          .withDeleted(false)
-        )
-        .withOutgoingRelation("isPseudonymOf", "work", relation -> relation
-          .withRev(2)
-          .withDeleted(true)
-        )
-        .withVre("ww")
-        .withVre("")
-        .withType("person")
-        .isLatest(true)
-        .withTimId(id.toString())
-      )
-      .withVertex("work", v -> v
-        .withVre("ww")
-        .withVre("")
-        .withType("person")
-        .withTimId("f005ba11-0000-0000-0000-000000000000")
-      )
-      .build();
-
-    TinkerpopJsonCrudService instance = basicInstance(graph);
-    String resultJson = instance.get("wwpersons", id).toString();
-
-    assertThat(resultJson, sameJSONAs(JsonBuilder.jsnO(
-      "@relationCount", jsn(2),
-      "@relations", JsonBuilder.jsnO(
-        "isPseudonymOf", JsonBuilder.jsnA(
-          JsonBuilder.jsnO(
-            "rev", jsn(1)
-          ),
-          JsonBuilder.jsnO(
-            "rev", jsn(2)
-          )
-        )
-      )
-    ).toString()).allowingExtraUnexpectedFields());
-  }
-
-  @Test
   public void showsThePropertiesOfTheRelationItself() throws Exception {
     UUID id = UUID.randomUUID();
     Graph graph = newGraph()
