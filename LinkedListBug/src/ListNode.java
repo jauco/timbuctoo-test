@@ -3,7 +3,7 @@ public class ListNode {
   protected ListNode next;
 
   public ListNode(int value) {
-    value = value;
+    this.value = value;
   }
 
   public ListNode(int value, ListNode next) {
@@ -14,4 +14,9 @@ public class ListNode {
   public int getValue() {
     return value;
   }
+
+  public String toString() {
+    return this.value + "";
+  }
+
 }

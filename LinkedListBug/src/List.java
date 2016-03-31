@@ -9,22 +9,36 @@ public class List {
   }
 
   public void reverse() {
-    ListNode ln1, ln2, ln3, ln4;
+    ListNode cur, next, prev, nnext;
 
     if (head == null) {
       return;
     }
-    ln1 = head;
-    ln2 = head.next;
-    ln3 = null;
+    cur = head;
+    next = head.next;
+    prev = null;
 
-    while (ln2 != null) {
-      ln4 = ln2.next;
-      ln1.next = ln3;
-      ln3 = ln1;
-      ln1 = ln2;
-      ln2 = ln4;
+    while (next != null) {
+      nnext = next.next;
+      cur.next = prev;
+      prev = cur;
+      cur = next;
+      next = nnext;
     }
-    head = ln1;
+    if (prev != null) {
+      cur.next = prev;
+    }
+    head = cur;
+  }
+
+  public void print() {
+    ListNode cur = head;
+    System.out.print("[");
+    while (cur != null) {
+      System.out.print(cur.getValue());
+      System.out.print(",");
+      cur = cur.next;
+    }
+    System.out.println("]");
   }
 }
