@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/HttpCommand/HttpCommand.iml" filepath="$PROJECT_DIR$/HttpCommand/HttpCommand.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ContractDiff/contract-diff.iml" filepath="$PROJECT_DIR$/ContractDiff/contract-diff.iml" />
+      <module fileurl="file://$PROJECT_DIR$/timbuctoo.iml" filepath="$PROJECT_DIR$/timbuctoo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/timbuctoo-instancev4/timbuctoo-instancev4.iml" filepath="$PROJECT_DIR$/timbuctoo-instancev4/timbuctoo-instancev4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/timbuctoo-test-services/timbuctoo-test-services.iml" filepath="$PROJECT_DIR$/timbuctoo-test-services/timbuctoo-test-services.iml" />
+    </modules>
+  </component>
+</project>
